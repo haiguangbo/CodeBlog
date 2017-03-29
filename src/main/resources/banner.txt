@@ -1,0 +1,9 @@
+  ${AnsiColor.GREEN}   #####                       ${AnsiColor.RED}      ######
+  ${AnsiColor.GREEN}  #     #  ####  #####  ###### ${AnsiColor.RED}      #     # #       ####   ####
+  ${AnsiColor.GREEN}  #       #    # #    # #      ${AnsiColor.RED}      #     # #      #    # #    #
+  ${AnsiColor.GREEN}  #       #    # #    # #####  ${AnsiColor.RED}      ####### #
+  ${AnsiColor.GREEN}  #       #    # #    # #      ${AnsiColor.RED}      #     # #      #    # #  ###
+  ${AnsiColor.GREEN}  #     # #    # #    # #      ${AnsiColor.RED}      #     # #      #    # #    #
+  ${AnsiColor.GREEN}   #####   ####  #####  ###### ${AnsiColor.RED}      ######  ######  ####   ####
+${AnsiColor.BRIGHT_BLUE}:: Code by haiguang, built based on Spring Boot ${spring-boot.version} ::
+  Enjoy yourself!
