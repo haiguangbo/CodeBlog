@@ -25,13 +25,33 @@
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
                             <span class="glyphicon glyphicon-th-list"></span>
-                            <span class="hidden-sm" data-translate="global.menu.entities.main">
+                        <span class="hidden-sm" data-translate="global.menu.entities.main">
                                 Entities
                             </span>
-                            <b class="caret"></b>
+                        <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="article" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.article">Article</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="comment" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.comment">Comment</span>
+                            </a>
+                        </li>
+
+                        <li ui-sref-active="active">
+                            <a ui-sref="gallery" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.gallery">Gallery</span>
+                            </a>
+                        </li>
+
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -39,10 +59,10 @@
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
                         <span>
                             <span class="glyphicon glyphicon-user"></span>
-                            <span class="hidden-sm" data-translate="global.menu.account.main">
+                        <span class="hidden-sm" data-translate="global.menu.account.main">
                                 Account
                             </span>
-                            <b class="caret"></b>
+                        <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
@@ -84,12 +104,13 @@
                         </li>
                     </ul>
                 </li>
-                <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown dropdown>
+                <li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true" has-authority="ROLE_ADMIN"
+                    uib-dropdown dropdown>
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
                         <span>
                             <span class="glyphicon glyphicon-tower"></span>
-                            <span class="hidden-sm" data-translate="global.menu.admin.main">Administration</span>
-                            <b class="caret"></b>
+                        <span class="hidden-sm" data-translate="global.menu.admin.main">Administration</span>
+                        <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
@@ -148,8 +169,8 @@
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" ng-if="languageVm.languages.length > 1">
                         <span>
                             <span class="glyphicon glyphicon-flag"></span>
-                            <span class="hidden-sm" data-translate="global.menu.language">Language</span>
-                            <b class="caret"></b>
+                        <span class="hidden-sm" data-translate="global.menu.language">Language</span>
+                        <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">

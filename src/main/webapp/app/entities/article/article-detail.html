@@ -1,0 +1,75 @@
+
+<div>
+    <h2><span data-translate="codeBlogApp.article.detail.title">Article</span> {{vm.article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="codeBlogApp.article.userId">User Id</span></dt>
+        <dd>
+            <span>{{vm.article.userId}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.labelName">Label Name</span></dt>
+        <dd>
+            <span>{{vm.article.labelName}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.title">Title</span></dt>
+        <dd>
+            <span>{{vm.article.title}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.abstracts">Abstracts</span></dt>
+        <dd>
+            <span>{{vm.article.abstracts}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.article.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.year">Year</span></dt>
+        <dd>
+            <span>{{vm.article.year}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.month">Month</span></dt>
+        <dd>
+            <span>{{vm.article.month}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.day">Day</span></dt>
+        <dd>
+            <span>{{vm.article.day}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.headImgUrl">Head Img Url</span></dt>
+        <dd>
+            <span>{{vm.article.headImgUrl}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.renderEngine">Render Engine</span></dt>
+        <dd>
+            <span>{{vm.article.renderEngine}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.articleType">Article Type</span></dt>
+        <dd>
+            <span>{{vm.article.articleType}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.readNum">Read Num</span></dt>
+        <dd>
+            <span>{{vm.article.readNum}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.commentNum">Comment Num</span></dt>
+        <dd>
+            <span>{{vm.article.commentNum}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.article.content">Content</span></dt>
+        <dd>
+            <span>{{vm.article.content}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="article-detail.edit({id:vm.article.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

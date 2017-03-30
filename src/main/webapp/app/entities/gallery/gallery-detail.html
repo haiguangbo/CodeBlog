@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="codeBlogApp.gallery.detail.title">Gallery</span> {{vm.gallery.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="codeBlogApp.gallery.userId">User Id</span></dt>
+        <dd>
+            <span>{{vm.gallery.userId}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.gallery.labelName">Label Name</span></dt>
+        <dd>
+            <span>{{vm.gallery.labelName}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.gallery.category">Category</span></dt>
+        <dd>
+            <span>{{vm.gallery.category}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.gallery.imgUrl">Img Url</span></dt>
+        <dd>
+            <span>{{vm.gallery.imgUrl}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.gallery.shortMsg">Short Msg</span></dt>
+        <dd>
+            <span>{{vm.gallery.shortMsg}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.gallery.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.gallery.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.gallery.resourceType">Resource Type</span></dt>
+        <dd>
+            <span>{{vm.gallery.resourceType}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="gallery-detail.edit({id:vm.gallery.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

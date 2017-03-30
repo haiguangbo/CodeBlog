@@ -42,7 +42,10 @@ public class CacheConfiguration {
             cm.createCache(org.codingblog.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(org.codingblog.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(org.codingblog.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
-            // jhipster-needle-ehcache-add-entry
+            cm.createCache(org.codingblog.domain.Article.class.getName(), jcacheConfiguration);
+            cm.createCache(org.codingblog.domain.Comment.class.getName(), jcacheConfiguration);
+            cm.createCache(org.codingblog.domain.Gallery.class.getName(), jcacheConfiguration);
+
         };
     }
 }

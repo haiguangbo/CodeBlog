@@ -1,0 +1,72 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myGalleryLabel" data-translate="codeBlogApp.gallery.home.createOrEditLabel">Create or edit a Gallery</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.gallery.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.gallery.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                    ng-model="vm.gallery.userId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.labelName" for="field_labelName">Label Name</label>
+            <input type="text" class="form-control" name="labelName" id="field_labelName"
+                    ng-model="vm.gallery.labelName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.category" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                    ng-model="vm.gallery.category"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.imgUrl" for="field_imgUrl">Img Url</label>
+            <input type="text" class="form-control" name="imgUrl" id="field_imgUrl"
+                    ng-model="vm.gallery.imgUrl"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.shortMsg" for="field_shortMsg">Short Msg</label>
+            <input type="text" class="form-control" name="shortMsg" id="field_shortMsg"
+                    ng-model="vm.gallery.shortMsg"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.createTime" for="field_createTime">Create Time</label>
+                <div class="input-group">
+                    <input id="field_createTime" type="text" class="form-control" name="createTime" datetime-picker="{{dateformat}}" ng-model="vm.gallery.createTime" is-open="vm.datePickerOpenStatus.createTime"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.gallery.resourceType" for="field_resourceType">Resource Type</label>
+            <input type="number" class="form-control" name="resourceType" id="field_resourceType"
+                    ng-model="vm.gallery.resourceType"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

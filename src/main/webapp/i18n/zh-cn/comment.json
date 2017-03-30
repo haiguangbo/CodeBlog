@@ -1,0 +1,25 @@
+{
+    "codeBlogApp": {
+        "comment" : {
+            "home": {
+                "title": "评论",
+                "createLabel": "新建评论",
+                "createOrEditLabel": "编辑评论"
+            },
+            "created": "评论{{ param }}发布完成",
+            "updated": "评论{{ param }}更新完成",
+            "deleted": "评论{{ param }}删除成功",
+            "delete": {
+                "question": "您确定要删除编号为{{ id }}的评论吗?"
+            },
+            "detail": {
+                "title": "评论"
+            },
+            "articleId": "文章编号",
+            "email": "电子邮件",
+            "content": "内容",
+            "createTime": "创建时间",
+            "parentId": "父评论编号"
+        }
+    }
+}

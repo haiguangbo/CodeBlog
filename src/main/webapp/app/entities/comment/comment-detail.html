@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="codeBlogApp.comment.detail.title">Comment</span> {{vm.comment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="codeBlogApp.comment.articleId">Article Id</span></dt>
+        <dd>
+            <span>{{vm.comment.articleId}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.comment.email">Email</span></dt>
+        <dd>
+            <span>{{vm.comment.email}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.comment.content">Content</span></dt>
+        <dd>
+            <span>{{vm.comment.content}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.comment.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{vm.comment.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="codeBlogApp.comment.parentId">Parent Id</span></dt>
+        <dd>
+            <span>{{vm.comment.parentId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="comment-detail.edit({id:vm.comment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

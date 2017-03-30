@@ -1,0 +1,71 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "labelName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "abstracts",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "month",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "day",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "headImgUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "renderEngine",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "articleType",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "readNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "commentNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20170329065519",
+    "dto": "yes",
+    "service": "serviceImpl",
+    "entityTableName": "article",
+    "pagination": "pagination"
+}

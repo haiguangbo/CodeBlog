@@ -1,0 +1,68 @@
+<div>
+    <h2 data-translate="codeBlogApp.comment.home.title">Comments</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="comment.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="codeBlogApp.comment.home.createLabel">
+                        Create new Comment
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="articleId"><span data-translate="codeBlogApp.comment.articleId">Article Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span data-translate="codeBlogApp.comment.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="content"><span data-translate="codeBlogApp.comment.content">Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createTime"><span data-translate="codeBlogApp.comment.createTime">Create Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="parentId"><span data-translate="codeBlogApp.comment.parentId">Parent Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="comment in vm.comments track by comment.id">
+                    <td><a ui-sref="comment-detail({id:comment.id})">{{comment.id}}</a></td>
+                    <td>{{comment.articleId}}</td>
+                    <td>{{comment.email}}</td>
+                    <td>{{comment.content}}</td>
+                    <td>{{comment.createTime | date:'medium'}}</td>
+                    <td>{{comment.parentId}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="comment-detail({id:comment.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="comment.edit({id:comment.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="comment.delete({id:comment.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
