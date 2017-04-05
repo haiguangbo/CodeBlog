@@ -14,7 +14,7 @@
             url: '/article?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'codeBlogApp.article.home.title'
+                pageTitle: '时间轴'
             },
             views: {
                 'content@': {
