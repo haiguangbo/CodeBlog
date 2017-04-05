@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+
     <!--
     <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css">
 
@@ -27,7 +28,9 @@
 </head>
 <body ng-app="codeBlogApp" ng-strict-di>
     <!--[if lt IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <p class="browserupgrade">
+            检测您的浏览器版本过低,请您升级您的浏览器.
+        </p>
     <![endif]-->
     <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
@@ -37,7 +40,8 @@
         </div>
 
         <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
+            <p >页脚相关配置</p>
+            <div ui-view="footer"></div>
         </div>
     </div>
 
