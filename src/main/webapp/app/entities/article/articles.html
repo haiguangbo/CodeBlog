@@ -1,86 +1,135 @@
-<div>
-    <h2 data-translate="codeBlogApp.article.home.title">Articles</h2>
-    <jhi-alert></jhi-alert>
+<!--
+    <h2 data-translate="codeBlogApp.article.home.title"></h2>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="article.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="codeBlogApp.article.home.createLabel">
-                        Create new Article
+                    <span>
+                        创建新文章
                     </span>
                 </button>
             </div>
         </div>
     </div>
     <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="userId"><span data-translate="codeBlogApp.article.userId">User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="labelName"><span data-translate="codeBlogApp.article.labelName">Label Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="title"><span data-translate="codeBlogApp.article.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="abstracts"><span data-translate="codeBlogApp.article.abstracts">Abstracts</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="createTime"><span data-translate="codeBlogApp.article.createTime">Create Time</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="year"><span data-translate="codeBlogApp.article.year">Year</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="month"><span data-translate="codeBlogApp.article.month">Month</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="day"><span data-translate="codeBlogApp.article.day">Day</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="headImgUrl"><span data-translate="codeBlogApp.article.headImgUrl">Head Img Url</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="renderEngine"><span data-translate="codeBlogApp.article.renderEngine">Render Engine</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="articleType"><span data-translate="codeBlogApp.article.articleType">Article Type</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="readNum"><span data-translate="codeBlogApp.article.readNum">Read Num</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="commentNum"><span data-translate="codeBlogApp.article.commentNum">Comment Num</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="content"><span data-translate="codeBlogApp.article.content">Content</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="article in vm.articles track by article.id">
-                    <td><a ui-sref="article-detail({id:article.id})">{{article.id}}</a></td>
-                    <td>{{article.userId}}</td>
-                    <td>{{article.labelName}}</td>
-                    <td>{{article.title}}</td>
-                    <td>{{article.abstracts}}</td>
-                    <td>{{article.createTime | date:'medium'}}</td>
-                    <td>{{article.year}}</td>
-                    <td>{{article.month}}</td>
-                    <td>{{article.day}}</td>
-                    <td>{{article.headImgUrl}}</td>
-                    <td>{{article.renderEngine}}</td>
-                    <td>{{article.articleType}}</td>
-                    <td>{{article.readNum}}</td>
-                    <td>{{article.commentNum}}</td>
-                    <td>{{article.content}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="article-detail({id:article.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="article.edit({id:article.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="article.delete({id:article.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
+-->
+<!-- 基于Bootstrap生成文章列表数据 -->
+<div class="row">
+    <div class="col-md-8">
+        <div class="blog-wrapper">
+            <div class="blog-list" ng-repeat="article in vm.articles track by article.id">
+                <div class="blog-header clearfix m-bottom-md">
+                    <div class="blog-date">
+                        {{article.month}} 月 {{article.day}} 日<br>
                         </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+                    <div class="blog-title">
+                        <div class="text-upper">{{article.title}}</div>
+
+                        <div class="text-muted font-12">
+                            By <a href="#">{{article.userId}}</a>
+                            in <a href="#">{{article.labelName}}</a>
+                            <span class="m-left-xs m-right-xs">|</span>
+                            <span><i class="fa fa-comments"></i> {{article.readNum}} 阅读</span>
+                        </div>
+                    </div>
+                </div><!-- ./blog-header -->
+
+                <img src="{{article.headImgUrl}}" alt="">
+
+                <p class="m-top-lg">
+                    {{article.abstracts}}
+                </p>
+
+                <div class="m-top-md">
+                    <a ui-sref="article-detail({id:article.id})" class="btn btn-danger text-upper">阅读全文</a>
+                </div>
+            </div><!-- ./blog-list -->
+
+
+        </div><!-- ./blog-wrapper -->
+    </div><!-- ./col -->
+
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <h4>搜索</h4>
+                <input type="text" class="form-control input-sm">
+            </div>
+        </form>
+
+        <hr>
+
+        <h4>最热</h4>
+        <ul class="popular-blog-post">
+            <li class="clearfix">
+                <div class="img-wrapper clearfix">
+                    <img src="images/blog/blog3.jpg" alt="">
+                </div>
+                <div class="popular-blog-detail">
+                    <a href="#" class="h5">How to increase your shop sales</a>
+                    <div class="text-muted m-top-sm">July 27, 2014</div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="img-wrapper clearfix">
+                    <img src="images/blog/blog4.jpg" alt="">
+                </div>
+                <div class="popular-blog-detail">
+                    <a href="#" class="h5">The Best Tools For Testing Your Designs</a>
+                    <div class="text-muted m-top-sm">July 26, 2014</div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="img-wrapper clearfix">
+                    <img src="images/blog/blog1.jpg" alt="">
+                </div>
+                <div class="popular-blog-detail">
+                    <a href="#" class="h5">The trends of Website Design in 2014</a>
+                    <div class="text-muted m-top-sm">July 25, 2014</div>
+                </div>
+            </li>
+        </ul>
+
+        <hr>
+
+        <h4>分类</h4>
+
+        <ul class="blog-sidebar-list">
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Websites</a></li>
+            <li><a href="#">Photography</a></li>
+            <li><a href="#">Theme</a></li>
+            <li><a href="#">Illustration</a></li>
+            <li><a href="#">Wordpress</a></li>
+        </ul>
+
+        <hr>
+
+        <h4>标签云</h4>
+
+        <a class="blog-tag" href="#">Website</a>
+        <a class="blog-tag" href="#">Wordpress</a>
+        <a class="blog-tag" href="#">Modern</a>
+        <a class="blog-tag" href="#">Flat</a>
+        <a class="blog-tag" href="#">Design</a>
+        <a class="blog-tag" href="#">Responsive</a>
+
+        <hr>
+
+        <h4>归档</h4>
+
+        <ul class="blog-sidebar-list">
+            <li><a href="#">July 2014</a></li>
+            <li><a href="#">June 2014</a></li>
+            <li><a href="#">May 2014</a></li>
+            <li><a href="#">April 2014</a></li>
+            <li><a href="#">March 2014</a></li>
+        </ul>
+    </div>
     </div>
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
-</div>

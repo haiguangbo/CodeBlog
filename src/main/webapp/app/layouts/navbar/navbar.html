@@ -17,38 +17,39 @@
                 -->
             </a>
         </div>
+
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
                 <li ui-sref-active="active">
-                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                    <a ui-sref="home" >
                         <span class="glyphicon glyphicon-home"></span>
                         <span >首页</span>
                     </a>
                 </li>
 
-                <li  ng-class="{active: vm.$state.includes('article')}" ng-switch-when="true">
-                    <a ui-sref="article" ng-click="vm.collapseNavbar()" >
+                <li  ng-class="{active: vm.$state.includes('article')}" >
+                    <a ui-sref="article"  >
                         <span class="glyphicon glyphicon-dashboard"></span>
                         <span >时间轴</span>
                     </a>
                 </li>
 
-                <li ng-class="{active: vm.$state.includes('achieve')}" ng-switch-when="true">
-                    <a ui-sref="achieve" ng-click="vm.collapseNavbar()" >
+                <li ng-class="{active: vm.$state.includes('achieve')}" >
+                    <a ui-sref="achieve"  >
                         <span class="glyphicon glyphicon-folder-open"></span>
                         <span >归档</span>
                     </a>
                 </li>
 
-                <li ng-class="{active: vm.$state.includes('gallery')}" ng-switch-when="true">
-                    <a ui-sref="gallery" ng-click="vm.collapseNavbar()">
+                <li ng-class="{active: vm.$state.includes('gallery')}" >
+                    <a ui-sref="gallery" >
                         <span class="glyphicon glyphicon-picture"></span>
                         <span >相册</span>
                     </a>
                 </li>
 
-                <li ng-class="{active: vm.$state.includes('about')}" ng-switch-when="true">
-                    <a ui-sref="about" ng-click="vm.collapseNavbar()">
+                <li ng-class="{active: vm.$state.includes('about')}" >
+                    <a ui-sref="about" >
                         <span class="glyphicon glyphicon-question-sign"></span>
                         <span >关于</span>
                     </a>
