@@ -21,12 +21,14 @@
 
         loadAll();
 
-        function loadAll () {
+        function loadAll() {
+            console.log("读取所有文章数据");
             Article.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
             }, onSuccess, onError);
+
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
@@ -34,13 +36,19 @@
                 }
                 return result;
             }
+
             function onSuccess(data, headers) {
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
                 vm.articles = data;
+                for (var i = 0, alength = vm.articles.length; i < alength; i++) {
+                    vm.articles[i].labelName = vm.articles[i].labelName.split(";");
+                }
+
                 vm.page = pagingParams.page;
             }
+
             function onError(error) {
                 AlertService.error(error.data.message);
             }
