@@ -1,0 +1,96 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Editor demo</h3>
+            <div text-angular ng-model="articleContent" name="demo-editor" ta-text-editor-class="clearfix border-around" ta-html-editor-class="border-around"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>HTML output</h3>
+            <pre ng-bind="articleContent" class="white-box"></pre>
+        </div>
+    </div>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myArticleLabel" data-translate="codeBlogApp.article.home.createOrEditLabel">Create or edit a Article</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.article.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" ng-model="vm.article.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId" ng-model="vm.article.userId" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.labelName" for="field_labelName">Label Name</label>
+            <input type="text" class="form-control" name="labelName" id="field_labelName" ng-model="vm.article.labelName" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title" ng-model="vm.article.title" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.abstracts" for="field_abstracts">Abstracts</label>
+            <input type="text" class="form-control" name="abstracts" id="field_abstracts" ng-model="vm.article.abstracts" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.createTime" for="field_createTime">Create Time</label>
+            <div class="input-group">
+                <input id="field_createTime" type="text" class="form-control" name="createTime" datetime-picker="{{dateformat}}" ng-model="vm.article.createTime" is-open="vm.datePickerOpenStatus.createTime" />
+                <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.year" for="field_year">Year</label>
+            <input type="number" class="form-control" name="year" id="field_year" ng-model="vm.article.year" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.month" for="field_month">Month</label>
+            <input type="number" class="form-control" name="month" id="field_month" ng-model="vm.article.month" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.day" for="field_day">Day</label>
+            <input type="number" class="form-control" name="day" id="field_day" ng-model="vm.article.day" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.headImgUrl" for="field_headImgUrl">Head Img Url</label>
+            <input type="text" class="form-control" name="headImgUrl" id="field_headImgUrl" ng-model="vm.article.headImgUrl" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.renderEngine" for="field_renderEngine">Render Engine</label>
+            <input type="text" class="form-control" name="renderEngine" id="field_renderEngine" ng-model="vm.article.renderEngine" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.articleType" for="field_articleType">Article Type</label>
+            <input type="number" class="form-control" name="articleType" id="field_articleType" ng-model="vm.article.articleType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.readNum" for="field_readNum">Read Num</label>
+            <input type="number" class="form-control" name="readNum" id="field_readNum" ng-model="vm.article.readNum" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.commentNum" for="field_commentNum">Comment Num</label>
+            <input type="number" class="form-control" name="commentNum" id="field_commentNum" ng-model="vm.article.commentNum" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="codeBlogApp.article.content" for="field_content">Content</label>
+            <textarea class="form-control" name="content" id="field_content" ng-model="vm.article.content"></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

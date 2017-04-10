@@ -3,11 +3,11 @@
 
     angular
         .module('codeBlogApp')
-        .controller('ArticleDialogController', ArticleDialogController);
+        .controller('ArticleAddController', ArticleAddController);
 
-    ArticleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Article'];
+    ArticleAddController.$inject = ['$timeout', '$scope', '$state', '$stateParams', 'DataUtils', 'entity', 'Article'];
 
-    function ArticleDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Article) {
+    function ArticleAddController($timeout, $scope, $state, $stateParams, DataUtils, entity, Article) {
         var vm = this;
 
         vm.article = entity;
@@ -18,15 +18,13 @@
         vm.openFile = DataUtils.openFile;
         vm.save = save;
 
-        $timeout(function (){
+        $timeout(function() {
             angular.element('.form-group:eq(1)>input').focus();
         });
 
-        function clear () {
-            $uibModalInstance.dismiss('cancel');
-        }
+        function clear() {}
 
-        function save () {
+        function save() {
             if (vm.article.id !== null) {
                 Article.update(vm.article, onSaveSuccess, onSaveError);
             } else {
@@ -34,19 +32,21 @@
             }
         }
 
-        function onSaveSuccess (result) {
+        function onSaveSuccess(result) {
             $scope.$emit('codeBlogApp:articleUpdate', result);
-            $uibModalInstance.close(result);
             vm.isSaving = false;
+            $state.go('article')
         }
 
-        function onSaveError () {
+        function onSaveError() {
             vm.isSaving = false;
+            $state.go('article')
+
         }
 
         vm.datePickerOpenStatus.createTime = false;
 
-        function openCalendar (date) {
+        function openCalendar(date) {
             vm.datePickerOpenStatus[date] = true;
         }
     }

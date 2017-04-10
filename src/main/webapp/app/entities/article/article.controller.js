@@ -41,9 +41,11 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
+                console.log(data);
                 vm.articles = data;
                 for (var i = 0, alength = vm.articles.length; i < alength; i++) {
-                    vm.articles[i].labelName = vm.articles[i].labelName.split(";");
+                    vm.articles[i].labelName = vm.articles[i].labelName === null ? "" : vm.articles[i].labelName.split(";");
+                    console.log(vm.articles[i].labelName);
                 }
 
                 vm.page = pagingParams.page;

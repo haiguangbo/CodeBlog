@@ -92,7 +92,7 @@
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
                         templateUrl: 'app/entities/article/article-dialog.html',
-                        controller: 'ArticleDialogController',
+                        controller: 'ArticleDialogControllerNew',
                         controllerAs: 'vm',
                         backdrop: 'static',
                         size: 'lg',
@@ -117,12 +117,12 @@
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/entities/article/article-dialog.html',
-                        controller: 'ArticleDialogController',
+                        templateUrl: 'app/entities/article/article-add.html',
+                        controller: 'ArticleAddController',
                         controllerAs: 'vm'
                     }
                 },
-                /*resolve: {
+                resolve: {
                     entity: function() {
                         return {
                             userId: null,
@@ -142,42 +142,7 @@
                             id: null
                         };
                     }
-                }*/
-
-                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                    $uibModal.open({
-                        templateUrl: 'app/entities/article/article-dialog.html',
-                        controller: 'ArticleDialogController',
-                        controllerAs: 'vm',
-                        backdrop: 'static',
-                        size: 'lg',
-                        resolve: {
-                            entity: function() {
-                                return {
-                                    userId: null,
-                                    labelName: null,
-                                    title: null,
-                                    abstracts: null,
-                                    createTime: null,
-                                    year: null,
-                                    month: null,
-                                    day: null,
-                                    headImgUrl: null,
-                                    renderEngine: null,
-                                    articleType: null,
-                                    readNum: null,
-                                    commentNum: null,
-                                    content: null,
-                                    id: null
-                                };
-                            }
-                        }
-                    }).result.then(function() {
-                        $state.go('article', null, { reload: 'article' });
-                    }, function() {
-                        $state.go('article');
-                    });
-                }]
+                }
             })
             .state('article.edit', {
                 parent: 'article',
