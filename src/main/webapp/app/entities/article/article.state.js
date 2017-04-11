@@ -89,24 +89,19 @@
                 data: {
                     authorities: ['ROLE_USER']
                 },
-                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                    $uibModal.open({
+                views: {
+                    'content@': {
                         templateUrl: 'app/entities/article/article-dialog.html',
-                        controller: 'ArticleDialogControllerNew',
+                        controller: 'ArticleDialogController',
                         controllerAs: 'vm',
-                        backdrop: 'static',
-                        size: 'lg',
-                        resolve: {
-                            entity: ['Article', function(Article) {
-                                return Article.get({ id: $stateParams.id }).$promise;
-                            }]
-                        }
-                    }).result.then(function() {
-                        $state.go('^', {}, { reload: false });
-                    }, function() {
-                        $state.go('^');
-                    });
-                }]
+                    }
+                },
+                resolve: {
+                    entity: ['$stateParams', 'Article', function($stateParams, Article) {
+                        return Article.get({ id: $stateParams.id }).$promise;
+                    }]
+                }
+
             })
             .state('article.new', {
                 parent: 'article',
